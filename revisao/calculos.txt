@@ -1,0 +1,6 @@
+calculadora(3, 9, '+')
+calculadora(9, 3, '-')
+calculadora(9, 3, '*')
+calculadora(9, 9, '/')
+calculadora(4, 1, '*')
+calculadora(4, 2, '+')
