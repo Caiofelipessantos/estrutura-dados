@@ -13,9 +13,9 @@ class Pilha {
         bool desempilhar(int &valor);
         bool retornaTopo(int &valor);
         bool inverterOrdem();
-		bool maiorValor(int &valor);
-		bool menorValor(int &valor);
-		bool media(int &valor);
-		bool impares();
-		bool palindromo(string texto);
+	bool maiorValor(int &valor);
+	bool menorValor(int &valor);
+	bool media(int &valor);
+	bool impares();
+	bool palindromo(string texto);
 };
