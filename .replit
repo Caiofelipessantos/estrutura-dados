@@ -1,0 +1,2 @@
+language = "cpp"
+run = "g++ tarefa-E/main.cpp -o tarefa-E/main && ./tarefa-E/main"

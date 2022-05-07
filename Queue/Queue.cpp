@@ -21,6 +21,7 @@ bool Queue::enqueue(int x) {
 		return false;
 	n->value = x;
 	if (isEmpty()) {
+		n->prev = nullptr;
 		start = n;
 		end = n;
 	} else {
