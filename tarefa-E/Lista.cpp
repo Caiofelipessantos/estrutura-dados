@@ -80,7 +80,7 @@ bool Lista::substituir(int posicao, int valor) {
     // Em caso de posição inválida retornar falso.
     // Após substituição retornar verdadeiro.
     // Seu código aqui
-	if (posicao < 1 or posicao > contador)
+	if (posicao < 1 or posicao > contador or vazia())
 		return false;
 
 	PonteiroElemento p, atual;
@@ -97,6 +97,8 @@ string Lista::listar() {
     // Retorna string com os elementos inseridos.
     // Formato: [1][2][3]
     // Seu código aqui
+	if (vazia())
+		return "";
 	PonteiroElemento p;
 	string ls = "";
 	p = inicio;
@@ -120,7 +122,7 @@ bool Lista::retornar(int posicao, int &valor) {
     // Em caso de posição inválida retornar falso.
     // Após inserção retornar verdadeiro.
     // Seu código aqui
-	if (posicao < 1 or posicao > contador)
+	if (posicao < 1 or posicao > contador or vazia())
 		return false;
 	PonteiroElemento p, atual;
 	
@@ -137,10 +139,27 @@ bool Lista::localizar(int &posicao, int valor) {
     // Se não for encontrado retornar falso e 0 através do parametro posicao.
     // A busca deve ser iniciada no primeiro elemento em direção ao último
     // Seu código aqui
-	PonteiroElemento p;
+	int pos = 1;
+	if (vazia()) {
+		pos = 0;
+		posicao = pos;
+		return false;
+	}
 	
+	PonteiroElemento p;
+	p = inicio;
 
-	return true;
+	while (p != nullptr) {
+		if (p->valor == valor) {
+			posicao = pos;
+			return true;	
+		}
+		pos++;
+		p = p->proximoElemento;
+	}
+	pos = 0;
+	posicao = pos;
+	return false;
 }
 
 bool Lista::localizarUltimo(int &posicao, int valor) {
@@ -150,7 +169,22 @@ bool Lista::localizarUltimo(int &posicao, int valor) {
     // Se não for encontrado retornar falso e 0 através do parametro posicao.
     // A busca deve ser iniciada no último elemento em direção ao primeiro.
     // Seu código aqui
+	int pos = contador;
+	if (vazia()) {
+		pos = 0;
+		posicao = pos;
+		return false;
+	}
 
-
-
+	PonteiroElemento p;
+	do {
+		setaPosicao(pos, p);
+		if (p->valor == valor) {
+			posicao = pos;
+			return true;
+		}
+		pos--;
+	} while (pos > 0);
+	posicao = pos;
+	return false;
 }

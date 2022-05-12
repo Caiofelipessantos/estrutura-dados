@@ -35,5 +35,15 @@ int main() {
 		cout << "Valor encontrado: " << x << endl;
 	else
 		cout << "Não encontrado!\n";
+
+	if (minhaLista.localizar(x, 40))
+		cout << "Valor encontrado na posição " << x << endl;
+	else
+		cout << "Não encontrado!\n";
+
+	if (minhaLista.localizarUltimo(x, 60))
+		cout << "Valor encontrado na posição " << x << endl;
+	else
+		cout << "Não encontrado!\n";
 	return 0;
 }
